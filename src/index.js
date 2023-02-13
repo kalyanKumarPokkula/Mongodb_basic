@@ -36,13 +36,9 @@ app.listen(PORT , async () => {
     connect();
     console.log('Mongo Db Connected');
     const Repo = new TweetRepository();
-    const tweet = await Repo.create({content : "New tweet with comment id"});
-    console.log(tweet);
-    const comment = await Comment.create({content : 'comment with id'})
-    tweet.comments.push(comment);
-    await tweet.save();
-    console.log(tweet);
-
+    const tweets = await Repo.getAll(2,4);
+    console.log(tweets);
+    
     
 
 
