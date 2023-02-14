@@ -36,8 +36,10 @@ app.listen(PORT , async () => {
     connect();
     console.log('Mongo Db Connected');
     const Repo = new TweetRepository();
-    const tweets = await Repo.getAll(0,1);
-    console.log(tweets[0].contentWithEmail);
+    const tweet = await Repo.create({content : 'tweet with hook'});
+    console.log(tweet);
+    // const tweets = await Repo.getAll(0,1);
+    // console.log(tweets[0].contentWithEmail);
     
     
 
